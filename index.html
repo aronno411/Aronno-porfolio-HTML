@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aronno Bhattacharjee | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000000;
+            color: white;
+            scroll-behavior: smooth;
+        }
+        .highlight {
+            color: #c1121f;
+        }
+        .bg-highlight {
+            background-color: #c1121f;
+        }
+        .border-highlight {
+            border-color: #c1121f;
+        }
+        .typing-text {
+            border-right: 3px solid #c1121f;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #c1121f; }
+        }
+        .profile-img {
+            transition: all 0.5s ease;
+            animation: float 6s ease-in-out infinite, glow 4s ease-in-out infinite alternate;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 10px rgba(193, 18, 31, 0.5); }
+            to { box-shadow: 0 0 30px rgba(193, 18, 31, 0.9); }
+        }
+        .circular-frame {
+            border-radius: 50%;
+            border: 3px solid #c1121f;
+            transition: all 0.3s ease;
+            animation: float 6s ease-in-out infinite;
+        }
+        .hobby-card {
+            transition: all 0.3s ease;
+        }
+        .hobby-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(193, 18, 31, 0.3);
+        }
+        .car-card {
+            transition: all 0.3s ease;
+        }
+        .car-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(193, 18, 31, 0.4);
+        }
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.2);
+            color: #c1121f;
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #c1121f;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            bottom: -8px;
+            left: 25%;
+            background-color: #c1121f;
+            border-radius: 3px;
+        }
+        .family-photo {
+            border: 5px solid #c1121f;
+            box-shadow: 0 0 30px rgba(193, 18, 31, 0.4);
+            transition: all 0.5s ease;
+            animation: pulse 6s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 15px rgba(193, 18, 31, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(193, 18, 31, 0.8); }
+            100% { box-shadow: 0 0 15px rgba(193, 18, 31, 0.4); }
+        }
+        .family-photo:hover {
+            transform: scale(1.02);
+        }
+        .photo-zoom {
+            transition: transform 0.5s ease;
+            transform-origin: center;
+        }
+        .photo-zoom:hover {
+            transform: scale(1.05);
+        }
+        .car-image {
+            transition: all 0.5s ease;
+            transform-origin: center;
+        }
+        .car-card:hover .car-image {
+            transform: scale(1.03);
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .gradient-overlay {
+            position: relative;
+        }
+        .gradient-overlay::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-black bg-opacity-90 z-50 shadow-lg backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-white font-bold text-xl highlight">Aronno</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="nav-link text-white hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#about" class="nav-link text-white hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#hobbies" class="nav-link text-white hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Hobbies</a>
+                        <a href="#family" class="nav-link text-white hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Family</a>
+                        <a href="#cars" class="nav-link text-white hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Dream Cars</a>
+                        <a href="#contact" class="nav-link text-white hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-95 backdrop-blur-sm">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="#home" class="nav-link text-white hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                <a href="#about" class="nav-link text-white hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">About</a>
+                <a href="#hobbies" class="nav-link text-white hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Hobbies</a>
+                <a href="#family" class="nav-link text-white hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Family</a>
+                <a href="#cars" class="nav-link text-white hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Dream Cars</a>
+                <a href="#contact" class="nav-link text-white hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-black relative overflow-hidden pt-16 gradient-overlay">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="stars absolute inset-0"></div>
+            <div class="twinkling absolute inset-0"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black z-10"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between w-full z-20">
+            <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0" data-aos="fade-right">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                    <span id="typing" class="typing-text"></span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-6">Creative Student from <span class="highlight">Dhaka, Bangladesh</span></p>
+                <p class="text-lg mb-6">Originally from <span class="highlight">Jessore, Khulna</span></p>
+                <div class="flex space-x-4 justify-center md:justify-start">
+                    <a href="#about" class="bg-highlight text-white px-6 py-3 rounded-full font-medium hover:bg-red-800 transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/30">Explore More</a>
+                    <a href="#contact" class="border-2 border-highlight text-white px-6 py-3 rounded-full font-medium hover:bg-red-900 hover:bg-opacity-20 transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/30">Contact Me</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
+                <img src="https://i.ibb.co/21Fyt1yW/699a2381-6515-471c-8b05-1dc459447ef6.jpg" 
+                     alt="Aronno Bhattacharjee" 
+                     class="profile-img w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-highlight shadow-xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-black bg-opacity-90" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 section-title">
+                About <span class="highlight">Me</span>
+            </h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3 flex justify-center">
+                    <img src="https://i.ibb.co/21Fyt1yW/699a2381-6515-471c-8b05-1dc459447ef6.jpg" 
+                         alt="Aronno Bhattacharjee" 
+                         class="profile-img w-64 h-64 rounded-full object-cover border-4 border-highlight shadow-lg photo-zoom">
+                </div>
+                <div class="md:w-2/3">
+                    <div class="bg-gray-900 bg-opacity-50 p-8 rounded-xl border-l-4 border-highlight backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold mb-4">Aronno Bhattacharjee</h3>
+                        <p class="mb-4">I was born on <span class="highlight">April 4, 2011 at 4:30 PM</span> in <span class="highlight">Dhaka, Bangladesh</span>. My hometown is <span class="highlight">Jessore, Khulna</span>.</p>
+                        <p>I am a creative and passionate student who loves exploring new ideas and expressing myself through various activities. Sports, especially football and cricket, fuel my competitive spirit. Music inspires my creativity and helps me relax. Superhero stories, particularly Spider-Man, teach me valuable life lessons about responsibility and courage.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hobbies Section -->
+    <section id="hobbies" class="py-20 bg-black bg-opacity-80" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 section-title">
+                My <span class="highlight">Hobbies</span>
+            </h2>
+            
+            <!-- Football -->
+            <div class="hobby-card bg-gray-900 bg-opacity-50 rounded-xl overflow-hidden mb-16 flex flex-col md:flex-row backdrop-blur-sm" data-aos="fade-up">
+                <div class="md:w-1/2 overflow-hidden">
+                    <img src="https://i.ibb.co/whxtcW6S/image.png" alt="Football" class="w-full h-full object-cover photo-zoom hover:scale-110 transition duration-500">
+                </div>
+                <div class="md:w-1/2 p-8">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-futbol text-3xl mr-4 highlight animate-spin" style="animation-duration: 3s;"></i>
+                        <h3 class="text-2xl font-bold">Football</h3>
+                    </div>
+                    <p class="mb-6">"Football is not just a game, it's a passion. I love the thrill, the teamwork, and the energy it brings."</p>
+                    <p class="font-semibold highlight">I support FC Barcelona and admire their playing style and commitment to excellence.</p>
+                </div>
+            </div>
+            
+            <!-- Cricket -->
+            <div class="hobby-card bg-gray-900 bg-opacity-50 rounded-xl overflow-hidden mb-16 flex flex-col md:flex-row backdrop-blur-sm" data-aos="fade-up">
+                <div class="md:w-1/2 order-2 md:order-1 overflow-hidden">
+                    <img src="https://i.ibb.co/VWTs4pHk/image.png" alt="Cricket" class="w-full h-full object-cover photo-zoom hover:scale-110 transition duration-500">
+                </div>
+                <div class="md:w-1/2 p-8 order-1 md:order-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-baseball-ball text-3xl mr-4 highlight animate-bounce" style="animation-duration: 2s;"></i>
+                        <h3 class="text-2xl font-bold">Cricket</h3>
+                    </div>
+                    <p class="mb-6">"Cricket is a game of skill and patience. I enjoy every match whether playing or watching."</p>
+                    <p>The strategic elements of cricket fascinate me, and I appreciate how it teaches teamwork and resilience.</p>
+                </div>
+            </div>
+            
+            <!-- Music -->
+            <div class="hobby-card bg-gray-900 bg-opacity-50 rounded-xl overflow-hidden mb-16 flex flex-col md:flex-row backdrop-blur-sm" data-aos="fade-up">
+                <div class="md:w-1/2 overflow-hidden">
+                    <img src="https://i.ibb.co/F48LGYq6/image.png" alt="Music" class="w-full h-full object-cover photo-zoom hover:scale-110 transition duration-500">
+                </div>
+                <div class="md:w-1/2 p-8">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-music text-3xl mr-4 highlight animate-pulse"></i>
+                        <h3 class="text-2xl font-bold">Music</h3>
+                    </div>
+                    <p class="mb-6">"Music inspires my creativity. I love listening to rhythms that lift my mood and fuel my imagination."</p>
+                    <p>Whether I'm studying or relaxing, music is always there to enhance my experience and spark new ideas.</p>
+                </div>
+            </div>
+            
+            <!-- Superhero -->
+            <div class="hobby-card bg-gray-900 bg-opacity-50 rounded-xl overflow-hidden flex flex-col md:flex-row backdrop-blur-sm" data-aos="fade-up">
+                <div class="md:w-1/2 order-2 md:order-1 overflow-hidden">
+                    <img src="https://i.ibb.co/5X1qd5yp/rsz-sm.webp" alt="Spider-Man" class="w-full h-full object-cover floating photo-zoom hover:scale-110 transition duration-500">
+                </div>
+                <div class="md:w-1/2 p-8 order-1 md:order-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-mask text-3xl mr-4 highlight swing" style="animation: swing 2s ease-in-out infinite;"></i>
+                        <h3 class="text-2xl font-bold">Spider-Man</h3>
+                    </div>
+                    <p class="mb-6">"Spider-Man is my favorite superhero. His strength, agility, and responsibility inspire me."</p>
+                    <p class="italic highlight text-xl">"With great power comes great responsibility."</p>
+                    <p class="mt-4">This quote from Spider-Man reminds me that our abilities come with obligations to use them wisely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Family Section -->
+    <section id="family" class="py-20 bg-black bg-opacity-90" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 section-title">
+                My <span class="highlight">Family</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+                <!-- Father -->
+                <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative group">
+                        <img src="https://i.ibb.co/Nddk9L2H/amit.jpg" 
+                             alt="Amit Bhattacharjee" 
+                             class="circular-frame w-48 h-48 object-cover mb-6 photo-zoom group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-highlight transition duration-500"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Amit Bhattacharjee</h3>
+                    <p class="text-center px-4">"My father is my role model and my biggest supporter. He always encourages me to pursue my passions and dreams."</p>
+                </div>
+                <!-- Mother -->
+                <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative group">
+                        <img src="https://i.ibb.co/C3TFPqdN/IMG-20231017-142627.jpg" 
+                             alt="Kakole Chatterjee" 
+                             class="circular-frame w-48 h-48 object-cover mb-6 photo-zoom group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-highlight transition duration-500"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Kakole Chatterjee</h3>
+                    <p class="text-center px-4">"My mother is my greatest inspiration. Her love and care have shaped me into who I am today."</p>
+                </div>
+            </div>
+            
+            <!-- Family Photo -->
+            <div class="mt-20" data-aos="fade-up">
+                <div class="max-w-4xl mx-auto group">
+                    <img src="https://i.ibb.co/7JWHFS3F/Made-with-ins-Mind-IMG-20240228-WA0010.jpg" 
+                         alt="Family Photo" 
+                         class="family-photo w-full rounded-lg photo-zoom group-hover:scale-102 transition duration-500">
+                    <p class="text-center mt-6 text-xl italic">"My family is the heart of who I am. Their love and support guide me every day."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dream Cars Section -->
+    <section id="cars" class="py-20 bg-black bg-opacity-80" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 section-title">
+                My <span class="highlight">Dream Cars</span>
+            </h2>
+            <div class="space-y-16">
+                <!-- Bugatti Chiron -->
+                <div class="car-card bg-gray-900 bg-opacity-50 rounded-xl overflow-hidden flex flex-col md:flex-row backdrop-blur-sm" data-aos="fade-right">
+                    <div class="md:w-1/2 overflow-hidden">
+                        <img src="https://i.ibb.co/6sH725R/OIP.jpg" alt="Bugatti Chiron" class="w-full h-full object-cover car-image">
+                    </div>
+                    <div class="md:w-1/2 p-8">
+                        <h3 class="text-2xl font-bold mb-4">Bugatti Chiron</h3>
+                        <p class="mb-6">"A masterpiece of engineering and design with aggressive styling. The Chiron represents the pinnacle of automotive performance."</p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-tachometer-alt mr-3 highlight animate-pulse"></i>
+                                <span>Top Speed: <span class="font-bold">420 km/h (261 mph)</span></span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-horse mr-3 highlight animate-pulse" style="animation-delay: 0.2s;"></i>
+                                <span>Horsepower: <span class="font-bold">1,500 HP</span></span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-stopwatch mr-3 highlight animate-pulse" style="animation-delay: 0.4s;"></i>
+                                <span>0–100 km/h: <span class="font-bold">2.4 seconds</span></span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-tag mr-3 highlight animate-pulse" style="animation-delay: 0.6s;"></i>
+                                <span>Price: <span class="font-bold">$3+ million</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rolls Royce Black Badge -->
+                <div class="car-card bg-gray-900 bg-opacity-50 rounded-xl overflow-hidden flex flex-col md:flex-row backdrop-blur-sm" data-aos="fade-left">
+                    <div class="md:w-1/2 order-2 md:order-1 overflow-hidden">
+                        <img src="https://i.ibb.co/wZHF27jp/image.png" alt="Rolls Royce Black Badge" class="w-full h-full object-cover car-image">
+                    </div>
+                    <div class="md:w-1/2 p-8 order-1 md:order-2">
+                        <h3 class="text-2xl font-bold mb-4">Rolls Royce Black Badge</h3>
+                        <p class="mb-6">"Rolls-Royce Black Badge defines modern luxury and silent power."</p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-tachometer-alt mr-3 highlight animate-pulse"></i>
+                                <span>Top Speed: <span class="font-bold">250 km/h (155 mph)</span></span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-horse mr-3 highlight animate-pulse" style="animation-delay: 0.2s;"></i>
+                                <span>Horsepower: <span class="font-bold">563 HP</span></span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-stopwatch mr-3 highlight animate-pulse" style="animation-delay: 0.4s;"></i>
+                                <span>0–100 km/h: <span class="font-bold">4.5 seconds</span></span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-tag mr-3 highlight animate-pulse" style="animation-delay: 0.6s;"></i>
+                                <span>Price: <span class="font-bold">Starting at $450,000+ USD</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black bg-opacity-90" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 section-title">
+                Get In <span class="highlight">Touch</span>
+            </h2>
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <div class="bg-gray-900 bg-opacity-50 p-8 rounded-xl border-l-4 border-highlight backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-xl mr-4 highlight animate-bounce" style="animation-duration: 2s;"></i>
+                                <span>aronnobhattacharjee73@gmail.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-xl mr-4 highlight animate-bounce" style="animation-duration: 2.5s;"></i>
+                                <span>Dhaka, Bangladesh</span>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mt-8 mb-6">Social Media</h3>
+                        <div class="flex space-x-6">
+                            <a href="https://www.instagram.com/aronno_b_411/" target="_blank" class="social-icon text-2xl">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/aronno.bhattacharjee.5" target="_blank" class="social-icon text-2xl">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@AronnoEditz_411" target="_blank" class="social-icon text-2xl">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                                <a href="https://github.com/aronno411" target="_blank" class="social-icon text-2xl">
+                                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="w-6 h-6 github-icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gray-900 bg-opacity-50 p-8 rounded-xl border-l-4 border-highlight backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold mb-6">Send Me a Message</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <input type="text" placeholder="Your Name" class="w-full bg-gray-800 bg-opacity-50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-highlight focus:ring-2 focus:ring-highlight transition duration-300">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Your Email" class="w-full bg-gray-800 bg-opacity-50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-highlight focus:ring-2 focus:ring-highlight transition duration-300">
+                            </div>
+                            <div>
+                                <textarea placeholder="Your Message" rows="4" class="w-full bg-gray-800 bg-opacity-50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-highlight focus:ring-2 focus:ring-highlight transition duration-300"></textarea>
+                            </div>
+                            <button type="submit" class="bg-highlight text-white px-6 py-3 rounded-lg font-medium hover:bg-red-800 transition duration-300 w-full transform hover:scale-105 shadow-lg hover:shadow-red-500/30 flex items-center justify-center">
+                                <span class="mr-2">Send Message</span>
+                                <i class="fas fa-paper-plane animate-pulse"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black text-center" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-2xl">Thank you for visiting! <span class="highlight animate-pulse" style="display: inline-block;">❤️</span></p>
+            <p class="mt-4 text-gray-400">© 2025 Aronno Bhattacharjee. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Typing animation
+        const text = "Hi, I'm Aronno";
+        let i = 0;
+        const typing = document.getElementById('typing');
+        
+        function typeWriter() {
+            if (i < text.length) {
+                typing.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 150);
+            } else {
+                // Animation complete, keep cursor blinking
+                setInterval(() => {
+                    typing.classList.toggle('typing-text');
+                }, 500);
+            }
+        }
+
+        // Start typing animation after page loads
+        window.addEventListener('load', () => {
+            setTimeout(typeWriter, 500);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Add swing animation for Spider-Man icon
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes swing {
+                0% { transform: rotate(0deg); }
+                25% { transform: rotate(15deg); }
+                50% { transform: rotate(-10deg); }
+                75% { transform: rotate(5deg); }
+                100% { transform: rotate(0deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
